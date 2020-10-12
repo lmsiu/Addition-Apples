@@ -1,0 +1,99 @@
+//I completed this project independently
+var score = 0;
+var lives = 3;
+var solution = x+y;
+var x = randomNumber(-50, 50);
+var y = randomNumber(-50, 50);
+var correctbtn = randomNumber(0, 8);
+onEvent("startbtn", "click", function( ) {
+  setScreen("gamescreen");
+  setscoreandlives();
+  settree();
+});
+function checkcorrect(num) {
+  if ("applebtn"+num=="applebtn"+correctbtn) {
+    score = score+1;
+    setText("score", "Score: " + score);
+  } else {
+    lives = lives-1;
+    setText("lives", "Lives: " + lives);
+  }
+  checkgameover();
+  settree();
+}
+function checkgameover() {
+  if (score == 10) {
+    setScreen("GameoverW");
+  }
+  if (lives == 0) {
+    setScreen("GameoverL");
+  }
+}
+function settree() {
+  x = randomNumber(-50, 50);
+y = randomNumber(-50, 50);
+solution = x+y;
+  setText("equation", x + " + " + y +" = ___");
+  makebtns();
+}
+function makebtns() {
+  correctbtn = randomNumber(0, 8);
+  for (var i = 0; i < 9; i++) {
+    setNumber("applebtn" + i, randomNumber(-100, 100));
+    for (var s = 0; s < 9; s++) {
+      if (getNumber("applebtn" + i)==getNumber("applebtn" + Math.abs(s-i))) {
+        setNumber("applebtn" +i, randomNumber(-100, 100));
+      }
+    }
+    if (getNumber("applebtn"+i) == solution) {
+      setNumber("applebtn" + i, randomNumber(-100, 100));
+    }
+  }
+  setText("applebtn"+correctbtn, ""+solution);
+}
+function setscoreandlives() {
+  score = 0;
+  lives = 3;
+  setText("score", "Score: " +score);
+  setText("lives", "Lives: "+lives);
+}
+onEvent("playagainbtn", "click", function( ) {
+  setScreen("homesceen");
+  setscoreandlives();
+});
+onEvent("PAbtn", "click", function( ) {
+  setScreen("homesceen");
+  setscoreandlives();
+});
+onEvent("applebtn1", "click", function( ) {
+  checkcorrect(1);
+});
+onEvent("applebtn2", "click", function( ) {
+  checkcorrect(2);
+});
+onEvent("applebtn3", "click", function( ) {
+  checkcorrect(3);
+});
+onEvent("applebtn4", "click", function( ) {
+  checkcorrect(4);
+});
+onEvent("applebtn5", "click", function( ) {
+  checkcorrect(5);
+});
+onEvent("applebtn6", "click", function( ) {
+  checkcorrect(6);
+});
+onEvent("applebtn7", "click", function( ) {
+  checkcorrect(7);
+});
+onEvent("applebtn8", "click", function( ) {
+  checkcorrect(8);
+});
+onEvent("applebtn0", "click", function( ) {
+  checkcorrect(0);
+});
+
+//The images in this app were not mine and came from
+// Worm - https://www.how-to-draw-funny-cartoons.com/cartoon-worm.html
+// Happy Apple - https://www.iconfinder.com/icons/1179448/apple_cheerful_emoji_emoticon_funny_happy_smile_icon
+//Apple Tree - http://www.clipartbest.com/apple-tree-clipart

@@ -5,5 +5,6 @@ I made this mutliscreen clicker app using JavaScript.
 
 To run the file in a web browser, please click on or copy and paste this link: https://studio.code.org/projects/applab/C6s0kb9M_MHwjO8AvKZ8zDJUBhycSU613alzeVurYVo
 
-If you would like to view all parts of the project, please download the included zip file.
 If you would like to view the raw code, view the raw code file attached.
+
+Images in this project are not mine. 
